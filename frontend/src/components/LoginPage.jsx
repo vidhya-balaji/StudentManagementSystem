@@ -49,10 +49,10 @@ function LoginPage() {
                 Student Information System
             </Typography>
             <div>
-                <TextField sx={{ m: 2 }} value={Username} onChange={handleUsername} id="outlined-basic" label="Email/Username" variant="outlined" />
+                <TextField  required sx={{ m: 2 }} value={Username} onChange={handleUsername} id="outlined-basic" label="Email/Username" variant="outlined" />
             </div>
             <div>
-                <TextField onChange={handlePassword} value={Password} id="outlined-basic" type='password' label="Password" variant="outlined" />
+                <TextField required onChange={handlePassword} value={Password} id="outlined-basic" type='password' label="Password" variant="outlined" />
             </div>
             <Button sx={{ m: 2 }} variant="contained" onClick={login}>Sign In</Button>
             <Button sx={{ m: 2 }} variant="contained" onClick={register}>Sign Up</Button>

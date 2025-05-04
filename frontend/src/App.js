@@ -4,7 +4,6 @@ import Signup from './components/Signup'
 import StudentList from './components/StudentList';
 import Edit from './components/Edit';
 import { useState } from 'react';
-import Add from './components/Add';
 function App() {
   const [regno, setRegno] = useState("");
   const [name, setName] = useState("");
@@ -46,7 +45,7 @@ function App() {
     <Route exact path="/register" element={<Signup/>}/>
     <Route exact path="/studentList" element={<StudentList listOfStudents={listOfStudents} setListOfStudents={setListOfStudents} setRegno={setRegno} setName={setName} setCourse={setCourse} setAddress={setAddress} setAge={setAge} setCGPA={setCGPA}/>}/>
     <Route exact path="/edit" element={<Edit listOfStudents={listOfStudents} name={name} regno={regno} address={address} age={age} course={course} CGPA={CGPA} setListOfStudents={setListOfStudents} setRegno={setRegno} setName={setName} setCourse={setCourse} setAddress={setAddress} setAge={setAge} setCGPA={setCGPA}/>}/>
-    <Route exact path="/add" element={<Add listOfStudents={listOfStudents} setListOfStudents={setListOfStudents} name={name} regno={regno} address={address} age={age} course={course} CGPA={CGPA} setRegno={setRegno} setName={setName} setCourse={setCourse} setAddress={setAddress} setAge={setAge} setCGPA={setCGPA}/>}/>
+    {/* <Route exact path="/add" element={<Add listOfStudents={listOfStudents} setListOfStudents={setListOfStudents} openPopUp={openPopUp}setOpenPopUp={setOpenPopUp}name={name} regno={regno} address={address} age={age} course={course} CGPA={CGPA} setRegno={setRegno} setName={setName} setCourse={setCourse} setAddress={setAddress} setAge={setAge} setCGPA={setCGPA}/>}/> */}
   </Routes>
   </BrowserRouter>
   </div>  );

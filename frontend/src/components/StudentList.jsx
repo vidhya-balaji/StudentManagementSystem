@@ -3,10 +3,13 @@ import { useNavigate } from "react-router-dom";
 import DeleteIcon from '@mui/icons-material/Delete';
 import axios from "axios";
 import AddIcon from '@mui/icons-material/Add';
+import Add from "./Add";
+import { useState } from "react";
 function StudentList(props) {
   const navigate = useNavigate();
   const listOfStudents = props.listOfStudents;
   const setListOfStudents = props.setListOfStudents;
+  const [openPopUp, setOpenPopUp] = useState(false);
   function handleEdit(editRegNo) {
     console.log(editRegNo);
     axios.post("http://localhost:5000/edit", { editRegNo }).then((res) => {
@@ -32,17 +35,11 @@ function StudentList(props) {
     setListOfStudents(temp)
   }
   function handleNewRecord() {
-    axios.post("http://localhost:5000/add").then(success => {
-      console.log("New record add success");
-      navigate('/add')
-    }
-    ).catch((err) => {
-      console.log("New Record Error " + err);
-    })
+    setOpenPopUp(true);
   }
   return (
     <TableContainer sx={{ width: "80%", position: "absolute", left: "10%", top: "10%" }} component={Paper}>
-      <Typography textAlign="center" marginBottom={'20px'} color={'primary'} fontFamily={"sans-serif"} fontWeight={"bold"} fontSize={"34px"}>Students List</Typography>
+      <Typography textAlign="center" marginBottom={'20px'} color={'primary'} fontFamily={"sans-serif"} fontWeight={"bold"} fontSize={"34px"}>Students Management System</Typography>
       <TextField label="Search...." sx={{ width: '40%', margin: '20px' }} />
       <Button onClick={handleNewRecord} color="primary" variant="contained" sx={{ height: '50px', margin: '20px' }} endIcon={<AddIcon />}>Add</Button>
       <Table sx={{ minWidth: 800 }} aria-label="simple table">
@@ -79,6 +76,7 @@ function StudentList(props) {
           ))}
         </TableBody>
       </Table>
+      <Add openPopUp={openPopUp} setOpenPopUp={setOpenPopUp} listOfStudents={listOfStudents} setListOfStudents={setListOfStudents}></Add>
     </TableContainer>
   )
 }

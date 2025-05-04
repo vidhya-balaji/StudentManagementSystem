@@ -37,7 +37,7 @@ function SignUp() {
             width: 400,
             height: 400, position: 'absolute', top: '20%', left: '35%', boxShadow: 3
         }}>
-            <Typography fontSize={40} sx={{ fontFamily: 'ui-sans-serif', textAlign: 'center', fontWeight: 'bold', background: blue }}>SIGN UP</Typography>
+            <Typography fontSize={40} color='primary' sx={{ fontFamily: 'ui-sans-serif', textAlign: 'center', fontWeight: 'bold', background: blue }}>SIGN UP</Typography>
             <div >
                 <TextField
                     value={name}
